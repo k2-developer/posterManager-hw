@@ -1,5 +1,6 @@
 package ru.netology.manager;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.Poster;
@@ -32,6 +33,8 @@ class PosterManagerTest {
         assertArrayEquals(expected,actual);
     }
 
+
+
     @Test
     void getLastPosters2() {
         PosterManager manager = new PosterManager(2);
@@ -43,7 +46,7 @@ class PosterManagerTest {
         manager.addFilm(thirdFilm);
         manager.getLastPosters();
         Poster[] actual = manager.getLastPosters();
-        Poster[] expected = new Poster[]{thirdFilm,secondFilm};
+        Poster[] expected = new Poster[]{secondFilm,thirdFilm};
         assertArrayEquals(expected,actual);
     }
 }
