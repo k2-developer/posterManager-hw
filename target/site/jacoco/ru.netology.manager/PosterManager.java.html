@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PosterManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cart</a> &gt; <a href="index.source.html" class="el_package">ru.netology.manager</a> &gt; <span class="el_source">PosterManager.java</span></div><h1>PosterManager.java</h1><pre class="source lang-java linenums">package ru.netology.manager;
+
+import ru.netology.domain.Poster;
+
+public class PosterManager {
+<span class="fc" id="L6">    private Poster[] posters = new Poster[0];</span>
+
+    private final int maxViewPosterCount;
+
+<span class="fc" id="L10">    public PosterManager(int maxViewPosterCount) {</span>
+<span class="fc" id="L11">        this.maxViewPosterCount = maxViewPosterCount;</span>
+<span class="fc" id="L12">    }</span>
+
+<span class="fc" id="L14">    public PosterManager() {</span>
+<span class="fc" id="L15">        this.maxViewPosterCount = 10;</span>
+<span class="fc" id="L16">    }</span>
+
+    public void addFilm(Poster poster) {
+<span class="fc" id="L19">        int length = posters.length + 1;</span>
+<span class="fc" id="L20">        Poster[] tmp = new Poster[length];</span>
+<span class="fc" id="L21">        System.arraycopy(posters, 0, tmp, 0, posters.length);</span>
+<span class="fc" id="L22">        int lastIndex = tmp.length - 1;</span>
+<span class="fc" id="L23">        tmp[lastIndex] = poster;</span>
+<span class="fc" id="L24">        posters = tmp;</span>
+<span class="fc" id="L25">    }</span>
+    
+    public Poster[] getLastPosters() {
+<span class="fc" id="L28">        Poster[] result = new Poster[Math.min(posters.length, maxViewPosterCount)];</span>
+<span class="fc" id="L29">        int startPosition = posters.length - result.length;</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        for (int i = 0; i &lt; result.length; i++){</span>
+<span class="fc" id="L31">            result[i] = posters[startPosition + i];</span>
+        }
+<span class="fc" id="L33">        return result;</span>
+    }
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
