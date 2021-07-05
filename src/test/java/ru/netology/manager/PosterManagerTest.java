@@ -29,14 +29,14 @@ class PosterManagerTest {
         manager.addFilm(thirdFilm);
         manager.getLastPosters();
         Poster[] actual = manager.getLastPosters();
-        Poster[] expected = new Poster[]{firstFilm,secondFilm,thirdFilm};
+        Poster[] expected = new Poster[]{thirdFilm,secondFilm,firstFilm};
         assertArrayEquals(expected,actual);
     }
 
 
 
     @Test
-    void getLastPosters2() {
+    void getLastPostersWithCount() {
         PosterManager manager = new PosterManager(2);
         Poster firstFilm = new Poster(1,11,"Sun","Comedy");
         Poster secondFilm = new Poster(2,22,"Moon","Lamedy");
@@ -46,7 +46,7 @@ class PosterManagerTest {
         manager.addFilm(thirdFilm);
         manager.getLastPosters();
         Poster[] actual = manager.getLastPosters();
-        Poster[] expected = new Poster[]{secondFilm,thirdFilm};
+        Poster[] expected = new Poster[]{thirdFilm,secondFilm};
         assertArrayEquals(expected,actual);
     }
 }

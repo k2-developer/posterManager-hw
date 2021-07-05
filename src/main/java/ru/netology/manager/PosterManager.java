@@ -24,11 +24,21 @@ public class PosterManager {
         posters = tmp;
     }
     
+//    public Poster[] getLastPosters() {
+//        Poster[] result = new Poster[Math.min(posters.length, maxViewPosterCount)];
+//        int startPosition = posters.length - result.length;
+//        for (int i = 0; i < result.length; i++){
+//            result[i] = posters[startPosition + i];
+//        }
+//        return result;
+//    }
+
     public Poster[] getLastPosters() {
         Poster[] result = new Poster[Math.min(posters.length, maxViewPosterCount)];
-        int startPosition = posters.length - result.length;
+        //int startPosition = posters.length - result.length;
         for (int i = 0; i < result.length; i++){
-            result[i] = posters[startPosition + i];
+            int index = posters.length - i - 1;
+            result[i] = posters[index];
         }
         return result;
     }
